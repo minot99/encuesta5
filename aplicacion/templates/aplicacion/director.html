@@ -1,0 +1,1451 @@
+{% extends 'base/base-formulario.html' %}
+{% load static tailwind_tags %}
+
+{% block numero-pagina %}
+<style>
+    input[type="radio"]:focus {
+        outline: none;
+        box-shadow: none;
+    }
+</style>
+
+<div class="form-sidebar p-6 h-full">
+    <div class="step active">
+        <div class="circle">1</div>
+        <div class="step-content">
+            <span>Paso</span>
+        </div>
+    </div>
+    <div class="step">
+        <div class="circle">2</div>
+        <div class="step-content">
+        <span>Paso</span>
+        </div>
+    </div>
+    <div class="step">
+        <div class="circle">3</div>
+        <div class="step-content">
+            <span>Paso</span>
+        </div>
+    </div>
+    <div class="step">
+        <div class="circle">4</div>
+        <div class="step-content">
+        <span>Paso</span>
+        </div>
+    </div>
+    <div class="step">
+        <div class="circle">5</div>
+        <div class="step-content">
+            <span>Paso</span>
+        </div>
+    </div>
+    <div class="step">
+        <div class="circle">6</div>
+        <div class="step-content">
+        <span>Paso</span>
+        </div>
+    </div>
+
+    <!-- Formulario 6 end -->
+    <button
+        class="mt-4 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+        <a href="/microsoft_authentication/logout" class="text-white">
+            Cerrar Sesión
+        </a>
+    </button>
+</div>
+{% endblock %}
+
+{% block barra-porcentaje %}
+<div id="barra-porcentaje" class="text-xl font-medium text-blue-100 text-center leading-none rounded-full" style="width: 16.67%">0.00%</div>
+{% endblock %}
+
+{% block contenido-formulario %}
+<form action="{% url 'form_director' %}" method="post">
+    {% csrf_token %}
+    <!-- * Formulario 1 start -->
+    <div class="stp step-1">
+        <h6 class="text-xl font-bold text-[#233559] mb-6">
+            Información personal director 1
+        </h6>
+        <div class="flex flex-wrap">
+
+            <div class="w-full lg:w-6/12 pr-4">
+                <div class="relative w-full mb-3">
+                    <label class="block text-sm font-medium text-[#233559]" for="nombre-director">
+                        Nombre del director
+                    </label>
+                    <input type="text" name="nombre" class="w-full border-gray-300 rounded-lg shadow-sm focus:border-[#483eff] focus:ring-[#483eff] shadow-blue-500/50 shadow-sm" placeholder="Escribe tu nombre" id="nombre-director" value="{{ nombre_usuario }}">
+                </div>
+            </div>
+
+            <div class="w-full lg:w-6/12">
+                <div class="relative w-full mb-3">
+                    <label class="block text-sm font-medium text-[#233559]" for="apellido-director">
+                        Apellido del director
+                    </label>
+                    <input type="text" name="apellido" class="w-full border-gray-300 rounded-lg shadow-sm focus:border-[#483eff] focus:ring-[#483eff] shadow-blue-500/50 shadow-sm" placeholder="Escribe tu apellido" id="apellido-director">
+                </div>
+            </div>
+
+            <div class="w-full lg:w-6/12 pr-4">
+                <div class="relative w-full mb-3">
+                    <label class="block text-sm font-medium text-[#233559]" for="cedula-director">
+                        Cédula del director
+                    </label>
+                    <input type="text" name="cedula" class="w-full border-gray-300 rounded-lg shadow-sm focus:border-[#483eff] focus:ring-[#483eff] shadow-blue-500/50 shadow-sm" placeholder="Coloca tu cédula" min="0" id="cedula-director" value="{{ cedula_usuario }}">
+                </div>
+            </div>
+
+            <div class="w-full lg:w-6/12">
+                <div class="relative w-full mb-3">
+                    <label class="block text-sm font-medium text-[#233559]" for="tel-ofi-director">
+                        Teléfono oficina del director
+                    </label>
+                    <input type="tel" name="telefono_oficina" class="w-full border-gray-300 rounded-lg shadow-sm focus:border-[#483eff] focus:ring-[#483eff] shadow-blue-500/50 shadow-sm" placeholder="Escriba el teléfono de oficina del director" id="tel-ofi-director">
+                </div>
+            </div>
+
+            <div class="w-full lg:w-6/12 pr-4">
+                <div class="relative w-full mb-3">
+                    <label class="block text-sm font-medium text-[#233559]" for="tel-per-director">
+                        Teléfono personal del director
+                    </label>
+                    <input type="tel" name="telefono_personal" class="w-full border-gray-300 rounded-lg shadow-sm focus:border-[#483eff] focus:ring-[#483eff] shadow-blue-500/50 shadow-sm" placeholder="Escribe tu teléfono personal" id="tel-per-director">
+                </div>
+            </div>
+            
+            <div class="w-full lg:w-6/12">
+                <div class="relative w-full mb-3">
+                    <label class="block text-sm font-medium text-[#233559]" for="correo-inst-director">
+                        Correo institucional del director
+                    </label>
+                    <input type="email" name="correo_institucional" class="w-full border-gray-300 rounded-lg shadow-sm focus:border-[#483eff] focus:ring-[#483eff] shadow-blue-500/50 shadow-sm" placeholder="example@example.com" id="correo-inst-director" value="{{ correo_usuario }}">
+                </div>
+            </div>
+
+            <div class="w-full lg:w-6/12 pr-4">
+                <div class="relative w-full mb-3">
+                    <label class="block text-sm font-medium text-[#233559]" for="correo-per-director1">
+                        Correo personal del director
+                    </label>
+                    <input type="email" name="correo_personal1" class="w-full border-gray-300 rounded-lg shadow-sm focus:border-[#483eff] focus:ring-[#483eff] shadow-blue-500/50 shadow-sm" placeholder="example@example.com" id="correo-per-director1">
+                </div>
+            </div>
+
+            <div class="w-full lg:w-6/12">
+                <div class="relative w-full mb-3">
+                    <label class="block text-sm font-medium text-[#233559]" for="correo-per-director2">
+                        Correo personal del director
+                    </label>
+                    <input type="email" name="correo_personal2" class="w-full border-gray-300 rounded-lg shadow-sm focus:border-[#483eff] focus:ring-[#483eff] shadow-blue-500/50 shadow-sm" placeholder="example@example.com" id="correo-per-director2">
+                </div>
+            </div>
+
+        </div>
+
+        <div class="btns flex" style="justify-content: end;">
+            <div class="next-stp visita mt-6 flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-[#483eff] hover:bg-[#665eff] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" type="button">Siguiente</div>
+        </div>
+    </div>
+
+    <!-- Formulario 1 end -->
+
+    <!-- * Formulario 2 start -->
+    <div class="stp step-2">
+        <h6 class="text-xl font-bold text-[#233559] mb-6">
+            Información del Director 2
+        </h6>
+
+        <div class="flex flex-wrap">
+
+            <div class="w-full lg:w-6/12 pr-4">
+                <div class="relative w-full mb-3">
+                    <label class="block text-sm font-medium text-[#233559]" for="director-2-codigo-siace">
+                        Código SIACE
+                    </label>
+                    <input type="text" name="codigo_siace" class="w-full border-gray-300 rounded-lg shadow-sm focus:border-[#483eff] focus:ring-[#483eff] shadow-blue-500/50 shadow-sm" placeholder="Escriba el código" id="director-2-codigo-siace" value="{{ cod_siace }}">
+                </div>
+            </div>
+
+            <div class="w-full lg:w-6/12">
+                <div class="relative w-full mb-3">
+                    <label class="block text-sm font-medium text-[#233559]" for="director-2-nombre-centro">
+                        Nombre del Centro educativo
+                    </label>
+                    <input type="text" name="nombre_centro_educativo" class="w-full border-gray-300 rounded-lg shadow-sm focus:border-[#483eff] focus:ring-[#483eff] shadow-blue-500/50 shadow-sm" placeholder="Escriba el nombre del centro educativo" id="director-2-nombre-centro" value="{{ nombre_escuela }}">
+                </div>
+            </div>
+
+            <div class="w-full lg:w-6/12 pr-4">
+                <div class="relative w-full mb-3">
+                    <label class="block text-sm font-medium text-[#233559]" for="director-2-region-educativa">
+                        Región Educativa
+                    </label>
+                    <input type="text" name="region_educativa" class="w-full border-gray-300 rounded-lg shadow-sm focus:border-[#483eff] focus:ring-[#483eff] shadow-blue-500/50 shadow-sm" placeholder="Escriba la región educativa" id="director-2-region-educativa" value="{{ corregimiento }}">
+                </div>
+            </div>
+
+            <div class="w-full lg:w-6/12">
+                <div class="relative w-full mb-3">
+                    <label class="block text-sm font-medium text-[#233559]" for="director-2-provincia">
+                        Provincia*
+                    </label>
+                    <input type="text" name="provincia" class="w-full border-gray-300 rounded-lg shadow-sm focus:border-[#483eff] focus:ring-[#483eff] shadow-blue-500/50 shadow-sm" placeholder="Escriba el nombre de la provincia" id="director-2-provincia" value="{{ provincia }}">
+                </div>
+            </div>
+
+            <div class="w-full lg:w-12/12">
+                <div class="relative w-full mb-3">
+                    <label class="block text-sm font-medium text-[#233559]" for="director-2-direccion">
+                        Dirección*
+                    </label>
+                    <input type="text" name="direccion" class="w-full border-gray-300 rounded-lg shadow-sm focus:border-[#483eff] focus:ring-[#483eff] shadow-blue-500/50 shadow-sm" placeholder="Escriba la dirección" id="director-2-direccion">
+                </div>
+            </div>
+
+            <div class="w-full lg:w-12/12">
+                <div class="relative w-full mb-3">
+                    <label class="block text-sm font-medium text-[#233559]" for="director-2-geolocalizacion">
+                        Geolocalización*
+                    </label>
+                    <div id="map" style="height: 400px;"></div>
+                </div>
+            </div>
+
+            <div class="w-full lg:w-6/12 pr-4">
+                <div class="relative w-full mb-3">
+                    <label class="block text-sm font-medium text-[#233559]" for="director-2-nivel-escolar">
+                        Nivel escolar ofrecido {{nivel}}
+                    </label>
+                    <select name="nivel_escolar" class="w-full border-gray-300 rounded-lg shadow-sm select-personalizado" id="director-2-nivel-escolar">
+                        <option value="seleccionar">Selecciona un nivel</option>
+                        <option 
+                            {% if nivel == 'Inicial' %}
+                            selected
+                            {% endif %}
+                            value="Inicial">Inicial</option>
+                        <option 
+                            {% if nivel == 'Primaria' %}
+                            selected
+                            {% endif %}
+                        value="Primaria">Primaria</option>
+                        <option 
+                            {% if nivel == 'Premedia' %}
+                            selected
+                            {% endif %}
+                        value="Premedia">Premedia</option>
+                        <option 
+                            {% if nivel == 'Media' %}
+                            selected
+                            {% endif %}
+                        value="Media">Media</option>
+                    </select>
+                </div>
+            </div>
+        
+            <!-- Matrícula total de estudiantes -->
+            <div class="w-full lg:w-6/12">
+                <div class="relative w-full mb-3">
+                    <label class="block text-sm font-medium text-[#233559]" for="matricula-total">
+                        Matrícula total de estudiantes
+                    </label>
+                    <input type="number" name="matricula_total" class="w-full border-gray-300 rounded-lg shadow-sm focus:border-[#483eff] focus:ring-[#483eff] shadow-blue-500/50 shadow-sm" id="matricula-total" min="0" placeholder="Ingrese el número total">
+                </div>
+            </div>
+
+            <!-- Alumnos por grado y division por sexo -->
+            <div class="flex flex-wrap -mx-4">
+                <!-- Fila para Grado 1 -->
+                <div class="w-full lg:w-4/12 px-4 mb-4">
+                    <label class="block text-sm font-medium text-[#233559]" for="matricula-grado-1">
+                        Matrícula total para Grado 1
+                    </label>
+                    <input type="number" name="grado1" id="matricula-grado-1" class="w-full border-gray-300 rounded-lg shadow-sm focus:border-[#483eff] focus:ring-[#483eff] shadow-blue-500/50 shadow-sm" min="0" placeholder="Cantidad">
+                </div>
+                <div class="w-full lg:w-4/12 px-4 mb-4">
+                    <label class="block text-sm font-medium text-[#233559]" for="femenino-grado-1">
+                        Grado 1 Femenino
+                    </label>
+                    <input type="number" name="femenino1" id="femenino-grado-1" class="w-full border-gray-300 rounded-lg shadow-sm focus:border-[#483eff] focus:ring-[#483eff] shadow-blue-500/50 shadow-sm" min="0" placeholder="Cantidad">
+                </div>
+                <div class="w-full lg:w-4/12 px-4 mb-4">
+                    <label class="block text-sm font-medium text-[#233559]" for="masculino-grado-1">
+                        Grado 1 Masculino
+                    </label>
+                    <input type="number" name="masculino1" id="masculino-grado-1" class="w-full border-gray-300 rounded-lg shadow-sm focus:border-[#483eff] focus:ring-[#483eff] shadow-blue-500/50 shadow-sm" min="0" placeholder="Cantidad">
+                </div>
+            
+                <!-- Fila para Grado 2 -->
+                <div class="w-full lg:w-4/12 px-4 mb-4">
+                    <label class="block text-sm font-medium text-[#233559]" for="matricula-grado-2">
+                        Matrícula total para Grado 2
+                    </label>
+                    <input type="number" name="grado2" id="matricula-grado-2" class="w-full border-gray-300 rounded-lg shadow-sm focus:border-[#483eff] focus:ring-[#483eff] shadow-blue-500/50 shadow-sm" min="0" placeholder="Cantidad">
+                </div>
+                <div class="w-full lg:w-4/12 px-4 mb-4">
+                    <label class="block text-sm font-medium text-[#233559]" for="femenino-grado-2">
+                        Grado 2 Femenino
+                    </label>
+                    <input type="number" name="femenino2" id="femenino-grado-2" class="w-full border-gray-300 rounded-lg shadow-sm focus:border-[#483eff] focus:ring-[#483eff] shadow-blue-500/50 shadow-sm" min="0" placeholder="Cantidad">
+                </div>
+                <div class="w-full lg:w-4/12 px-4 mb-4">
+                    <label class="block text-sm font-medium text-[#233559]" for="masculino-grado-2">
+                        Grado 2 Masculino
+                    </label>
+                    <input type="number" name="masculino2" id="masculino-grado-2" class="w-full border-gray-300 rounded-lg shadow-sm focus:border-[#483eff] focus:ring-[#483eff] shadow-blue-500/50 shadow-sm" min="0" placeholder="Cantidad">
+                </div>
+            
+                <!-- Fila para Grado 3 -->
+                <div class="w-full lg:w-4/12 px-4 mb-4">
+                    <label class="block text-sm font-medium text-[#233559]" for="matricula-grado-3">
+                        Matrícula total para Grado 3
+                    </label>
+                    <input type="number" name="grado3" id="matricula-grado-3" class="w-full border-gray-300 rounded-lg shadow-sm focus:border-[#483eff] focus:ring-[#483eff] shadow-blue-500/50 shadow-sm" min="0" placeholder="Cantidad">
+                </div>
+                <div class="w-full lg:w-4/12 px-4 mb-4">
+                    <label class="block text-sm font-medium text-[#233559]" for="femenino-grado-3">
+                        Grado 3 Femenino
+                    </label>
+                    <input type="number" name="femenino3" id="femenino-grado-3" class="w-full border-gray-300 rounded-lg shadow-sm focus:border-[#483eff] focus:ring-[#483eff] shadow-blue-500/50 shadow-sm" min="0" placeholder="Cantidad">
+                </div>
+                <div class="w-full lg:w-4/12 px-4 mb-4">
+                    <label class="block text-sm font-medium text-[#233559]" for="masculino-grado-3">
+                        Grado 3 Masculino
+                    </label>
+                    <input type="number" name="masculino3" id="masculino-grado-3" class="w-full border-gray-300 rounded-lg shadow-sm focus:border-[#483eff] focus:ring-[#483eff] shadow-blue-500/50 shadow-sm" min="0" placeholder="Cantidad">
+                </div>
+            
+                <!-- Fila para Grado 4 -->
+                <div class="w-full lg:w-4/12 px-4 mb-4">
+                    <label class="block text-sm font-medium text-[#233559]" for="matricula-grado-4">
+                        Matrícula total para Grado 4
+                    </label>
+                    <input type="number" name="grado4" id="matricula-grado-4" class="w-full border-gray-300 rounded-lg shadow-sm focus:border-[#483eff] focus:ring-[#483eff] shadow-blue-500/50 shadow-sm" min="0" placeholder="Cantidad">
+                </div>
+                <div class="w-full lg:w-4/12 px-4 mb-4">
+                    <label class="block text-sm font-medium text-[#233559]" for="femenino-grado-4">
+                        Grado 4 Femenino
+                    </label>
+                    <input type="number" name="femenino4" id="femenino-grado-4" class="w-full border-gray-300 rounded-lg shadow-sm focus:border-[#483eff] focus:ring-[#483eff] shadow-blue-500/50 shadow-sm" min="0" placeholder="Cantidad">
+                </div>
+                <div class="w-full lg:w-4/12 px-4 mb-4">
+                    <label class="block text-sm font-medium text-[#233559]" for="masculino-grado-4">
+                        Grado 4 Masculino
+                    </label>
+                    <input type="number" name="masculino4" id="masculino-grado-4" class="w-full border-gray-300 rounded-lg shadow-sm focus:border-[#483eff] focus:ring-[#483eff] shadow-blue-500/50 shadow-sm" min="0" placeholder="Cantidad">
+                </div>
+            </div>
+            
+            <!-- Cantidad total de docentes -->
+            <div class="w-full lg:w-6/12 mb-3">
+                <div class="relative w-full mb-3">
+                    <label class="block text-sm font-medium text-[#592326]" for="total-docentes">
+                        Cantidad total de docentes
+                    </label>
+                    <div class="mt-2">
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="frecuencia-habla-ingles" value="nunca" class="text-[#483eff] border-gray-300">
+                            <span class="ml-2 text-sm font-medium text-[#233559]">Nunca o Casi Nunca</span>
+                        </label><br>
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="frecuencia-habla-ingles" value="algunas_veces" class="text-[#483eff] border-gray-300">
+                            <span class="ml-2 text-sm font-medium text-[#233559]">Algunas veces</span>
+                        </label><br>
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="frecuencia-habla-ingles" value="muchas_veces" class="text-[#483eff] border-gray-300">
+                            <span class="ml-2 text-sm font-medium text-[#233559]">Muchas veces</span>
+                        </label><br>
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="frecuencia-habla-ingles" value="siempre" class="text-[#483eff] border-gray-300">
+                            <span class="ml-2 text-sm font-medium text-[#233559]">Siempre o Casi Siempre</span>
+                        </label>
+                    </div>
+                    
+                </div>
+            </div>
+
+            <!-- Cantidad de docentes por grado, cada grado en una fila -->
+            <div class="w-full flex flex-wrap -mx-4">
+                <!-- Grado 1 -->
+                <div class="w-full lg:w-1/4 mb-4">
+                    <label class="block text-sm font-medium text-[#233559]" for="docentes-grado-1">
+                        Docentes grado 1
+                    </label>
+                    <div class="mt-2">
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="docentes1" value="1" class="text-[#483eff] border-gray-300">
+                            <span class="ml-2 text-sm font-medium text-[#233559]">1</span>
+                        </label><br>
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="docentes1" value="2-5" class="text-[#483eff] border-gray-300">
+                            <span class="ml-2 text-sm font-medium text-[#233559]">2-5</span>
+                        </label><br>
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="docentes1" value="6-9" class="text-[#483eff] border-gray-300">
+                            <span class="ml-2 text-sm font-medium text-[#233559]">6-9</span>
+                        </label><br>
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="docentes1" value="10+" class="text-[#483eff] border-gray-300">
+                            <span class="ml-2 text-sm font-medium text-[#233559]">10+</span>
+                        </label>
+                    </div>
+                    
+                </div>
+
+                <!-- Grado 2 -->
+                <div class="w-full lg:w-1/4 px-4 mb-4">
+                    <label class="block text-sm font-medium text-[#233559]" for="docentes-grado-2">
+                        Docentes grado 2
+                    </label>
+                    <div class="mt-2">
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="docentes2" value="1" class="text-[#483eff] border-gray-300">
+                            <span class="ml-2 text-sm font-medium text-[#233559]">1</span>
+                        </label><br>
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="docentes2" value="2-5" class="text-[#483eff] border-gray-300">
+                            <span class="ml-2 text-sm font-medium text-[#233559]">2-5</span>
+                        </label><br>
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="docentes2" value="6-9" class="text-[#483eff] border-gray-300">
+                            <span class="ml-2 text-sm font-medium text-[#233559]">6-9</span>
+                        </label><br>
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="docentes2" value="10+" class="text-[#483eff] border-gray-300">
+                            <span class="ml-2 text-sm font-medium text-[#233559]">10+</span>
+                        </label>
+                    </div>
+                    
+                </div>
+
+                <!-- Grado 3 -->
+                <div class="w-full lg:w-1/4 px-4 mb-4">
+                    <label class="block text-sm font-medium text-[#233559]" for="docentes-grado-3">
+                        Docentes grado 3
+                    </label>
+                    <div class="mt-2">
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="docentes3" value="1" class="text-[#483eff] border-gray-300">
+                            <span class="ml-2 text-sm font-medium text-[#233559]">1</span>
+                        </label><br>
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="docentes3" value="2-5" class="text-[#483eff] border-gray-300">
+                            <span class="ml-2 text-sm font-medium text-[#233559]">2-5</span>
+                        </label><br>
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="docentes3" value="6-9" class="text-[#483eff] border-gray-300">
+                            <span class="ml-2 text-sm font-medium text-[#233559]">6-9</span>
+                        </label><br>
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="docentes3" value="10+" class="text-[#483eff] border-gray-300">
+                            <span class="ml-2 text-sm font-medium text-[#233559]">10+</span>
+                        </label>
+                    </div>
+                    
+                </div>
+
+                <!-- Grado 4 -->
+                <div class="w-full lg:w-1/4 px-4 mb-4">
+                    <label class="block text-sm font-medium text-[#233559]" for="docentes-grado-4">
+                        Docentes grado 4
+                    </label>
+                    <div class="mt-2">
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="docentes4" value="1" class="text-[#483eff] border-gray-300">
+                            <span class="ml-2 text-sm font-medium text-[#233559]">1</span>
+                        </label><br>
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="docentes4" value="2-5" class="text-[#483eff] border-gray-300">
+                            <span class="ml-2 text-sm font-medium text-[#233559]">2-5</span>
+                        </label><br>
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="docentes4" value="6-9" class="text-[#483eff] border-gray-300">
+                            <span class="ml-2 text-sm font-medium text-[#233559]">6-9</span>
+                        </label><br>
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="docentes4" value="10+" class="text-[#483eff] border-gray-300">
+                            <span class="ml-2 text-sm font-medium text-[#233559]">10+</span>
+                        </label>
+                    </div>
+                    
+                </div>
+            </div>
+
+            <!-- Número de estudiantes por salón -->
+            <div class="w-full lg:w-6/12 pr-4">
+                <div class="relative w-full mb-3">
+                    <label class="block text-sm font-medium text-[#233559]" for="estudiantes-salon">
+                        Número de estudiantes por salón
+                    </label>
+                    <div class="mt-2">
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="estudiantes_salon" value="1-20" class="text-[#483eff] border-gray-300">
+                            <span class="ml-2 text-sm font-medium text-[#233559]">1-20</span>
+                        </label><br>
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="estudiantes_salon" value="21-40" class="text-[#483eff] border-gray-300">
+                            <span class="ml-2 text-sm font-medium text-[#233559]">21-40</span>
+                        </label><br>
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="estudiantes_salon" value="41-60" class="text-[#483eff] border-gray-300">
+                            <span class="ml-2 text-sm font-medium text-[#233559]">41-60</span>
+                        </label><br>
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="estudiantes_salon" value="60-80" class="text-[#483eff] border-gray-300">
+                            <span class="ml-2 text-sm font-medium text-[#233559]">60-80</span>
+                        </label><br>
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="estudiantes_salon" value="mas de 80" class="text-[#483eff] border-gray-300">
+                            <span class="ml-2 text-sm font-medium text-[#233559]">Más de 80</span>
+                        </label>
+                    </div>
+                    
+                </div>
+            </div>
+        
+            <!-- Cantidad de docentes por asignatura -->
+            <div class="w-full lg:w-12/12">
+                <div class="relative w-full mb-3">
+                    <label class="block text-sm font-medium text-[#233559]" for="docentes-asignatura">
+                        Cantidad de docentes por asignatura
+                    </label>
+                    <div class="mt-2">
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="docentes_asignatura" value="1" class="text-[#483eff] border-gray-300">
+                            <span class="ml-2 text-sm font-medium text-[#233559]">1</span>
+                        </label><br>
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="docentes_asignatura" value="2-5" class="text-[#483eff] border-gray-300">
+                            <span class="ml-2 text-sm font-medium text-[#233559]">2-5</span>
+                        </label><br>
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="docentes_asignatura" value="6-9" class="text-[#483eff] border-gray-300">
+                            <span class="ml-2 text-sm font-medium text-[#233559]">6-9</span>
+                        </label><br>
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="docentes_asignatura" value="10+" class="text-[#483eff] border-gray-300">
+                            <span class="ml-2 text-sm font-medium text-[#233559]">10+</span>
+                        </label>
+                    </div>
+                    
+                </div>
+            </div>
+
+        </div>
+
+            <div class="btns flex justify-between">
+                <div class="prev-stp visita mt-6 flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-[#483eff] hover:bg-[#665eff] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" type="button">Atrás</div>
+    
+                <div class="next-stp visita mt-6 flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-[#483eff] hover:bg-[#665eff] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" type="button">Siguiente</div>
+            </div>
+    </div>
+    <!-- Formulario 2 end -->
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const selectFrecuencia2 = document.getElementById('director-2-nivel-escolar');
+            const selectsDependientes2 = document.querySelectorAll('#matricula-grado-1, #femenino-grado-1, #masculino-grado-1, #matricula-grado-2, #femenino-grado-2, #masculino-grado-2, #matricula-grado-3, #femenino-grado-3, #masculino-grado-3, #matricula-grado-4, #femenino-grado-4, #masculino-grado-4');
+        
+            function toggleDisabled(value) {
+                const isDisabled = value === 'seleccionar';
+                selectsDependientes2.forEach(select => {
+                    select.disabled = isDisabled;
+                    const label = document.querySelector(`label[for="${select.id}"]`);
+                    if (isDisabled) {
+                        select.style.opacity = '0.3';
+                        label.style.opacity = '0.6';
+                        select.value = '';
+                    } else {
+                        select.style.opacity = '1';
+                        label.style.opacity = '1';
+                    }
+                });
+            }
+        
+            if (selectFrecuencia2) {
+                selectFrecuencia2.addEventListener('change', function () {
+                    toggleDisabled(this.value);
+                });
+        
+                toggleDisabled(selectFrecuencia2.value);
+            }
+        });
+    </script>
+
+    <!-- * Formulario 3 start -->
+    <div class="stp step-3">
+        <h6 class="text-xl font-bold text-[#233559] mb-6">
+            Información del Director 3
+        </h6>
+
+        <div class="flex flex-wrap">
+
+            <div class="w-full lg:w-6/12 pr-4">
+                <div class="relative w-full mb-3">
+                    <label class="block text-sm font-medium text-[#233559]" for="participa-ppb">
+                        Participa Activamente en PPB
+                    </label>
+                    <div class="mt-2">
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="participa_ppb" value="no" class="text-[#483eff] border-gray-300" id="participa-ppb">
+                            <span class="ml-2 text-sm font-medium text-[#233559]">No</span>
+                        </label><br>
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="participa_ppb" value="si" class="text-[#483eff] border-gray-300">
+                            <span class="ml-2 text-sm font-medium text-[#233559]">Sí</span>
+                        </label>
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="w-full lg:w-6/12">
+                <div class="relative w-full mb-3">
+                    <label class="block text-sm font-medium text-[#233559]" for="estudiantes-nivel-ppb">
+                        Estudiantes por nivel en PPB
+                    </label>
+                    <div class="mt-2">
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="estudiantes_nivel_ppb" value="1-20" class="text-[#483eff] border-gray-300">
+                            <span class="ml-2 text-sm font-medium text-[#233559]">1-20</span>
+                        </label><br>
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="estudiantes_nivel_ppb" value="21-40" class="text-[#483eff] border-gray-300">
+                            <span class="ml-2 text-sm font-medium text-[#233559]">21-40</span>
+                        </label><br>
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="estudiantes_nivel_ppb" value="41-60" class="text-[#483eff] border-gray-300">
+                            <span class="ml-2 text-sm font-medium text-[#233559]">41-60</span>
+                        </label><br>
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="estudiantes_nivel_ppb" value="60-80" class="text-[#483eff] border-gray-300">
+                            <span class="ml-2 text-sm font-medium text-[#233559]">60-80</span>
+                        </label><br>
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="estudiantes_nivel_ppb" value="mas de 80" class="text-[#483eff] border-gray-300">
+                            <span class="ml-2 text-sm font-medium text-[#233559]">Más de 80</span>
+                        </label>
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="w-full lg:w-6/12 pr-4">
+                <div class="relative w-full mb-3">
+                    <label class="block text-sm font-medium text-[#233559]" for="docentes-capacitados-ppb">
+                        Cantidad de Docentes Capacitados localmente en el PPB por grado
+                    </label>
+                    <div class="mt-2">
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="docentes_capacitados_ppb" value="1-5" class="text-[#483eff] border-gray-300">
+                            <span class="ml-2 text-sm font-medium text-[#233559]">1-5</span>
+                        </label><br>
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="docentes_capacitados_ppb" value="6-10" class="text-[#483eff] border-gray-300">
+                            <span class="ml-2 text-sm font-medium text-[#233559]">6-10</span>
+                        </label><br>
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="docentes_capacitados_ppb" value="11-15" class="text-[#483eff] border-gray-300">
+                            <span class="ml-2 text-sm font-medium text-[#233559]">11-15</span>
+                        </label><br>
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="docentes_capacitados_ppb" value="15+" class="text-[#483eff] border-gray-300">
+                            <span class="ml-2 text-sm font-medium text-[#233559]">15+</span>
+                        </label>
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="w-full lg:w-6/12">
+                <div class="relative w-full mb-3">
+                    <label class="block text-sm font-medium text-[#233559]" for="docentes-aprobados-ppb">
+                        Cantidad de Docentes capacitados localmente que aprobaron el examen por grado
+                    </label>
+                    <div class="mt-2">
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="docentes_aprobados_ppb" value="1-5" class="text-[#483eff] border-gray-300">
+                            <span class="ml-2 text-sm font-medium text-[#233559]">1-5</span>
+                        </label><br>
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="docentes_aprobados_ppb" value="6-10" class="text-[#483eff] border-gray-300">
+                            <span class="ml-2 text-sm font-medium text-[#233559]">6-10</span>
+                        </label><br>
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="docentes_aprobados_ppb" value="11-15" class="text-[#483eff] border-gray-300">
+                            <span class="ml-2 text-sm font-medium text-[#233559]">11-15</span>
+                        </label><br>
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="docentes_aprobados_ppb" value="15+" class="text-[#483eff] border-gray-300">
+                            <span class="ml-2 text-sm font-medium text-[#233559]">15+</span>
+                        </label>
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="w-full lg:w-6/12 pr-4">
+                <div class="relative w-full mb-3">
+                    <label class="block text-sm font-medium text-[#233559]" for="docentes-capacitacion-exterior">
+                        Cantidad que se capacitaron en el extranjero por grado
+                    </label>
+                    <div class="mt-2">
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="docentes_capacitacion_exterior" value="1-5" class="text-[#483eff] border-gray-300">
+                            <span class="ml-2 text-sm font-medium text-[#233559]">1-5</span>
+                        </label><br>
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="docentes_capacitacion_exterior" value="6-10" class="text-[#483eff] border-gray-300">
+                            <span class="ml-2 text-sm font-medium text-[#233559]">6-10</span>
+                        </label><br>
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="docentes_capacitacion_exterior" value="11-15" class="text-[#483eff] border-gray-300">
+                            <span class="ml-2 text-sm font-medium text-[#233559]">11-15</span>
+                        </label><br>
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="docentes_capacitacion_exterior" value="15+" class="text-[#483eff] border-gray-300">
+                            <span class="ml-2 text-sm font-medium text-[#233559]">15+</span>
+                        </label>
+                    </div>
+                    
+                </div>
+            </div>
+        
+        </div>
+
+        <div class="btns flex justify-between">
+            <div class="prev-stp visita mt-6 flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-[#483eff] hover:bg-[#665eff] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" type="button">Atrás</div>
+
+            <div class="next-stp visita mt-6 flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-[#483eff] hover:bg-[#665eff] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" type="button">Siguiente</div>
+        </div>
+    </div>
+    <!-- Formulario 3 end -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const selectFrecuencia = document.getElementById('participa-ppb');
+            const selectsDependientes = document.querySelectorAll('#estudiantes-nivel-ppb, #docentes-capacitados-ppb, #docentes-aprobados-ppb, #docentes-capacitacion-exterior');
+
+            function toggleDisabled(value) {
+                const isDisabled = value === 'no';
+                selectsDependientes.forEach(select => {
+                    select.disabled = isDisabled;
+                    const label = document.querySelector(`label[for="${select.id}"]`);
+                    if (isDisabled) {
+                        select.style.opacity = '0.6';
+                        label.style.opacity = '0.6';
+                        select.value = '';
+                    } else {
+                        select.style.opacity = '1';
+                        label.style.opacity = '1';
+                    }
+                });
+            }
+
+            selectFrecuencia.addEventListener('change', function () {
+                toggleDisabled(this.value);
+            });
+
+            toggleDisabled(selectFrecuencia.value);
+        });
+
+    </script>
+
+    <!-- Formulario 4 start -->
+
+    <div class="stp step-4">
+        <h6 class="text-xl font-bold text-[#233559] mb-6">
+            Información del Director 4
+        </h6>
+
+        <div class="flex flex-wrap">
+
+            <!-- Códigos del plan de estudio (malla curricular) disponibles en el Centro Educativo -->
+            <div class="w-full lg:w-6/12 pr-4">
+                <div class="relative w-full mb-3">
+                    <label class="block text-sm font-medium text-[#233559]" for="codigos-plan-estudio">
+                        Códigos del plan de estudio (malla curricular) disponibles en el Centro Educativo
+                    </label>
+                    <div class="mt-2">
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="codigos_plan_estudio" value="no" class="text-[#483eff] border-gray-300">
+                            <span class="ml-2 text-sm font-medium text-[#233559]">No</span>
+                        </label><br>
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="codigos_plan_estudio" value="si" class="text-[#483eff] border-gray-300">
+                            <span class="ml-2 text-sm font-medium text-[#233559]">Sí</span>
+                        </label>
+                    </div>
+                    
+                </div>
+            </div>
+
+            <!-- Planes de estudio (malla curricular) disponibles en el Centro Educativo (año 2023) -->
+            <div class="w-full lg:w-6/12 pl-4">
+                <div class="relative w-full mb-3">
+                    <label class="block text-sm font-medium text-[#233559]" for="planes-estudio">
+                        Planes de estudio (malla curricular) disponibles en el Centro Educativo (año 2023)
+                    </label>
+                    <div class="mt-2">
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="planes_estudio" value="no" class="text-[#483eff] border-gray-300">
+                            <span class="ml-2 text-sm font-medium text-[#233559]">No</span>
+                        </label><br>
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="planes_estudio" value="si" class="text-[#483eff] border-gray-300">
+                            <span class="ml-2 text-sm font-medium text-[#233559]">Sí</span>
+                        </label>
+                    </div>
+                    
+                </div>
+            </div>
+
+            <!-- ¿En el plan de estudios se tienen diagramadas otras asignaturas en idioma inglés? -->
+            <div class="w-full lg:w-6/12 pr-4">
+                <div class="relative w-full mb-3">
+                    <label class="block text-sm font-medium text-[#233559]" for="asignaturas-ingles-plan-estudios">
+                        ¿En el plan de estudios se tienen diagramadas otras asignaturas en idioma inglés?
+                    </label>
+                    <div class="mt-2">
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="asignaturas_ingles_plan_estudios" value="no" class="text-[#483eff] border-gray-300">
+                            <span class="ml-2 text-sm font-medium text-[#233559]">No</span>
+                        </label><br>
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="asignaturas_ingles_plan_estudios" value="si" class="text-[#483eff] border-gray-300">
+                            <span class="ml-2 text-sm font-medium text-[#233559]">Sí</span>
+                        </label>
+                    </div>
+                    
+                </div>
+            </div>
+
+            <!-- ¿En el Centro Educativo, se dictan otras asignaturas en idioma inglés? (Ejemplo: Math, Science, etc.) -->
+            <div class="w-full lg:w-6/12 pl-4">
+                <div class="relative w-full mb-3">
+                    <label class="block text-sm font-medium text-[#233559]" for="asignaturas-ingles-dictadas">
+                        ¿En el Centro Educativo, se dictan otras asignaturas en idioma inglés? (Ejemplo: Math, Science, etc.)
+                    </label>
+                    <div class="mt-2">
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="asignaturas_ingles_dictadas" value="no" class="text-[#483eff] border-gray-300">
+                            <span class="ml-2 text-sm font-medium text-[#233559]">No</span>
+                        </label><br>
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="asignaturas_ingles_dictadas" value="si" class="text-[#483eff] border-gray-300">
+                            <span class="ml-2 text-sm font-medium text-[#233559]">Sí</span>
+                        </label>
+                    </div>
+                    
+                </div>
+            </div>
+
+            <!-- Planes de clase según plan de estudios (Contraste entre el Plan de estudio y la planificación/programación del docente) (año 2023) -->
+            <div class="w-full lg:w-6/12 pr-4">
+                <div class="relative w-full mb-3">
+                    <label class="block text-sm font-medium text-[#233559]" for="planes-clase">
+                        Se ajusta el Plan de clase según plan de estudios (Contraste entre el Plan de estudio y la planificación /programación del docente) 
+(año 2023)
+                    </label>
+                    <div class="mt-2">
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="planes_clase" value="Muy en desacuerdo" class="text-[#483eff] border-gray-300">
+                            <span class="ml-2 text-sm font-medium text-[#233559]">Muy en desacuerdo</span>
+                        </label><br>
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="planes_clase" value="En desacuerdo" class="text-[#483eff] border-gray-300">
+                            <span class="ml-2 text-sm font-medium text-[#233559]">En desacuerdo</span>
+                        </label><br>
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="planes_clase" value="De acuerdo" class="text-[#483eff] border-gray-300">
+                            <span class="ml-2 text-sm font-medium text-[#233559]">De acuerdo</span>
+                        </label><br>
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="planes_clase" value="Muy de acuerdo" class="text-[#483eff] border-gray-300">
+                            <span class="ml-2 text-sm font-medium text-[#233559]">Muy de acuerdo</span>
+                        </label>
+                    </div>
+                    
+                </div>
+            </div>
+
+            <!-- Horas dedicadas a la enseñanza del inglés (basado en el plan de estudios) -->
+            <div class="w-full lg:w-6/12 pl-4">
+                <div class="relative w-full mb-3">
+                    <label class="block text-sm font-medium text-[#233559]" for="horas-ingles">
+                        Horas dedicadas a la enseñanza del inglés (basado en el plan de estudios)
+                    </label>
+                    <div class="mt-2">
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="horas_ingles" value="1-5" class="text-[#483eff] border-gray-300">
+                            <span class="ml-2 text-sm font-medium text-[#233559]">1-5</span>
+                        </label><br>
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="horas_ingles" value="6-10" class="text-[#483eff] border-gray-300">
+                            <span class="ml-2 text-sm font-medium text-[#233559]">6-10</span>
+                        </label><br>
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="horas_ingles" value="11-15" class="text-[#483eff] border-gray-300">
+                            <span class="ml-2 text-sm font-medium text-[#233559]">11-15</span>
+                        </label><br>
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="horas_ingles" value="15+" class="text-[#483eff] border-gray-300">
+                            <span class="ml-2 text-sm font-medium text-[#233559]">15+</span>
+                        </label>
+                    </div>
+                    
+                </div>
+            </div>
+
+            <!-- Horas teóricas impartidas dentro del plan de estudio -->
+            <div class="w-full lg:w-6/12 pr-4">
+                <div class="relative w-full mb-3">
+                    <label class="block text-sm font-medium text-[#233559]" for="horas-teoricas">
+                        Horas teóricas impartidas dentro del plan de estudio
+                    </label>
+                    <div class="mt-2">
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="horas_teoricas" value="1-5" class="text-[#483eff] border-gray-300">
+                            <span class="ml-2 text-sm font-medium text-[#233559]">1-5</span>
+                        </label><br>
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="horas_teoricas" value="6-10" class="text-[#483eff] border-gray-300">
+                            <span class="ml-2 text-sm font-medium text-[#233559]">6-10</span>
+                        </label><br>
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="horas_teoricas" value="11-15" class="text-[#483eff] border-gray-300">
+                            <span class="ml-2 text-sm font-medium text-[#233559]">11-15</span>
+                        </label><br>
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="horas_teoricas" value="15+" class="text-[#483eff] border-gray-300">
+                            <span class="ml-2 text-sm font-medium text-[#233559]">15+</span>
+                        </label>
+                    </div>
+                    
+                </div>
+            </div>
+
+            <!-- Horas prácticas impartidas dentro del plan de estudio -->
+            <div class="w-full lg:w-6/12 pl-4">
+                <div class="relative w-full mb-3">
+                    <label class="block text-sm font-medium text-[#233559]" for="horas-practicas">
+                        Horas prácticas impartidas dentro del plan de estudio
+                    </label>
+                    <div class="mt-2">
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="horas_practicas" value="1-5" class="text-[#483eff] border-gray-300">
+                            <span class="ml-2 text-sm font-medium text-[#233559]">1-5</span>
+                        </label><br>
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="horas_practicas" value="6-10" class="text-[#483eff] border-gray-300">
+                            <span class="ml-2 text-sm font-medium text-[#233559]">6-10</span>
+                        </label><br>
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="horas_practicas" value="11-15" class="text-[#483eff] border-gray-300">
+                            <span class="ml-2 text-sm font-medium text-[#233559]">11-15</span>
+                        </label><br>
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="horas_practicas" value="15+" class="text-[#483eff] border-gray-300">
+                            <span class="ml-2 text-sm font-medium text-[#233559]">15+</span>
+                        </label>
+                    </div>
+                    
+                </div>
+            </div>
+
+        </div>    
+
+        <div class="btns flex justify-between">
+            <div class="prev-stp visita mt-6 flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-[#483eff] hover:bg-[#665eff] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" type="button">Atrás</div>
+
+            <div class="next-stp visita mt-6 flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-[#483eff] hover:bg-[#665eff] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" type="button">Siguiente</div>
+        </div>
+    </div>
+
+    <!-- Formulario 4 end -->
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const selectFrecuencia4 = document.getElementById('codigos-plan-estudio');
+            const selectsDependientes4 = document.querySelectorAll('#planes-estudio, #asignaturas-ingles-plan-estudios, #asignaturas-ingles-dictadas, #planes-clase, #horas-ingles, #horas-teoricas, #horas-practicas');
+        
+            function toggleDisabled(value) {
+                const isDisabled = value === 'no';
+                selectsDependientes4.forEach(select => {
+                    select.disabled = isDisabled;
+                    const label = document.querySelector(`label[for="${select.id}"]`);
+                    if (isDisabled) {
+                        select.style.opacity = '0.3';
+                        label.style.opacity = '0.6';
+                        select.value = '';
+                    } else {
+                        select.style.opacity = '1';
+                        label.style.opacity = '1';
+                    }
+                });
+            }
+        
+            if (selectFrecuencia4) {
+                selectFrecuencia4.addEventListener('change', function () {
+                    toggleDisabled(this.value);
+                });
+        
+                toggleDisabled(selectFrecuencia4.value);
+            }
+        });
+    </script>
+
+    <!-- Formulario 5 start -->
+
+    <div class="stp step-5">
+        <h6 class="text-xl font-bold text-[#233559] mb-6">
+            Información del Director 5
+        </h6>
+        <div class="flex flex-wrap">
+            <!-- Pregunta 1 -->
+            <div class="w-full lg:w-6/12 pr-4">
+                <div class="relative w-full mb-3">
+                    <label class="block text-sm font-medium text-[#233559]" for="actividades-propio-centro">
+                        ¿Se realizan actividades especiales que promueven el aprendizaje y uso del idioma inglés que nacen desde su Centro Educativo? (Actividades especiales en inglés que realiza la institución internamente y / o con otras instituciones (concursos, clubes de inglés, otros).
+                    </label>
+                    <div class="mt-2">
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="actividades_propio_centro" value="Nunca o Casi Nunca" class="text-[#483eff] border-gray-300">
+                            <span class="ml-2 text-sm font-medium text-[#233559]">Nunca o Casi Nunca</span>
+                        </label><br>
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="actividades_propio_centro" value="Algunas veces" class="text-[#483eff] border-gray-300">
+                            <span class="ml-2 text-sm font-medium text-[#233559]">Algunas veces</span>
+                        </label><br>
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="actividades_propio_centro" value="Muchas veces" class="text-[#483eff] border-gray-300">
+                            <span class="ml-2 text-sm font-medium text-[#233559]">Muchas veces</span>
+                        </label><br>
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="actividades_propio_centro" value="Siempre o Casi Siempre" class="text-[#483eff] border-gray-300">
+                            <span class="ml-2 text-sm font-medium text-[#233559]">Siempre o Casi Siempre</span>
+                        </label>
+                    </div>
+                    
+                </div>
+            </div>
+
+            <!-- Pregunta 2 -->
+            <div class="w-full lg:w-6/12 pl-4">
+                <div class="relative w-full mb-3">
+                    <label class="block text-sm font-medium text-[#233559]" for="cantidad-estudiantes-actividades-externas-1">
+                        ¿Cuántos estudiantes participan actualmente en estas actividades por grado?
+                    </label>
+                    <div class="mt-2">
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="cantidad_estudiantes_actividades_externas_1" value="Nunca o Casi Nunca" class="text-[#483eff] border-gray-300">
+                            <span class="ml-2 text-sm font-medium text-[#233559]">Nunca o Casi Nunca</span>
+                        </label><br>
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="cantidad_estudiantes_actividades_externas_1" value="Algunas veces" class="text-[#483eff] border-gray-300">
+                            <span class="ml-2 text-sm font-medium text-[#233559]">Algunas veces</span>
+                        </label><br>
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="cantidad_estudiantes_actividades_externas_1" value="Muchas veces" class="text-[#483eff] border-gray-300">
+                            <span class="ml-2 text-sm font-medium text-[#233559]">Muchas veces</span>
+                        </label><br>
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="cantidad_estudiantes_actividades_externas_1" value="Siempre o Casi Siempre" class="text-[#483eff] border-gray-300">
+                            <span class="ml-2 text-sm font-medium text-[#233559]">Siempre o Casi Siempre</span>
+                        </label>
+                    </div>
+                        
+                </div>
+            </div>
+            
+            <!-- Pregunta 3 -->
+            <div class="w-full lg:w-6/12 pr-4">
+                <div class="relative w-full mb-3">
+                    <label class="block text-sm font-medium text-[#233559]" for="actividades-meduca-centro">
+                        ¿Se realizan actividades especiales que promueven el aprendizaje y uso del idioma inglés que nacen desde MEDUCA y se realizan en su Centro Educativo? Actividades especiales en inglés que realiza la institución internamente y / o con otras instituciones (concursos, clubes de inglés, otros).
+                    </label>
+                    <div class="mt-2">
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="actividades_meduca_centro" value="Nunca o Casi Nunca" class="text-[#483eff] border-gray-300">
+                            <span class="ml-2 text-sm font-medium text-[#233559]">Nunca o Casi Nunca</span>
+                        </label><br>
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="actividades_meduca_centro" value="Algunas veces" class="text-[#483eff] border-gray-300">
+                            <span class="ml-2 text-sm font-medium text-[#233559]">Algunas veces</span>
+                        </label><br>
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="actividades_meduca_centro" value="Muchas veces" class="text-[#483eff] border-gray-300">
+                            <span class="ml-2 text-sm font-medium text-[#233559]">Muchas veces</span>
+                        </label><br>
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="actividades_meduca_centro" value="Siempre o Casi Siempre" class="text-[#483eff] border-gray-300">
+                            <span class="ml-2 text-sm font-medium text-[#233559]">Siempre o Casi Siempre</span>
+                        </label>
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <!-- Pregunta 4 -->
+            <div class="w-full lg:w-6/12 pl-4">
+                <div class="relative w-full mb-3">
+                    <label class="block text-sm font-medium text-[#233559]" for="cantidad-estudiantes-actividades-especiales-1">
+                        ¿Cuántos estudiantes participan actualmente en estas actividades por grado?
+                    </label>
+                    <div class="mt-2">
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="cantidad_estudiantes_actividades_especiales_1" value="Nunca o Casi Nunca" class="text-[#483eff] border-gray-300">
+                            <span class="ml-2 text-sm font-medium text-[#233559]">Nunca o Casi Nunca</span>
+                        </label><br>
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="cantidad_estudiantes_actividades_especiales_1" value="Algunas veces" class="text-[#483eff] border-gray-300">
+                            <span class="ml-2 text-sm font-medium text-[#233559]">Algunas veces</span>
+                        </label><br>
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="cantidad_estudiantes_actividades_especiales_1" value="Muchas veces" class="text-[#483eff] border-gray-300">
+                            <span class="ml-2 text-sm font-medium text-[#233559]">Muchas veces</span>
+                        </label><br>
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="cantidad_estudiantes_actividades_especiales_1" value="Siempre o Casi Siempre" class="text-[#483eff] border-gray-300">
+                            <span class="ml-2 text-sm font-medium text-[#233559]">Siempre o Casi Siempre</span>
+                        </label>
+                    </div>
+                        
+                </div>
+            </div>
+            
+            <!-- Pregunta 5 -->
+            <div class="w-full lg:w-6/12 pr-4">
+                <div class="relative w-full mb-3">
+                    <label class="block text-sm font-medium text-[#233559]" for="actividades-externas-centro">
+                        ¿Se realizan actividades especiales que promueven el aprendizaje y uso del idioma inglés que nacen desde fundaciones, otras instituciones, empresa privada u otros organismos que se realizan en su Centro Educativo? Actividades especiales en inglés que realiza la institución internamente y / o con otras instituciones (concursos, clubes de inglés, otros)
+                    </label>
+                    <div class="mt-2">
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="actividades_externas_centro" value="Nunca o Casi Nunca" class="text-[#483eff] border-gray-300">
+                            <span class="ml-2 text-sm font-medium text-[#233559]">Nunca o Casi Nunca</span>
+                        </label><br>
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="actividades_externas_centro" value="Algunas veces" class="text-[#483eff] border-gray-300">
+                            <span class="ml-2 text-sm font-medium text-[#233559]">Algunas veces</span>
+                        </label><br>
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="actividades_externas_centro" value="Muchas veces" class="text-[#483eff] border-gray-300">
+                            <span class="ml-2 text-sm font-medium text-[#233559]">Muchas veces</span>
+                        </label><br>
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="actividades_externas_centro" value="Siempre o Casi Siempre" class="text-[#483eff] border-gray-300">
+                            <span class="ml-2 text-sm font-medium text-[#233559]">Siempre o Casi Siempre</span>
+                        </label>
+                    </div>
+                    
+                </div>
+            </div>
+
+            <!-- Pregunta 6 -->
+            <div class="w-full lg:w-6/12 pl-4">
+                <div class="relative w-full mb-3">
+                    <label class="block text-sm font-medium text-[#233559]" for="cantidad-estudiantes-actividades-centro-1">
+                        ¿Cuántos estudiantes participan actualmente en estas actividades por grado?
+                    </label>
+                    <div class="mt-2">
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="cantidad_estudiantes_actividades_centro_1" value="Nunca o Casi Nunca" class="text-[#483eff] border-gray-300">
+                            <span class="ml-2 text-sm font-medium text-[#233559]">Nunca o Casi Nunca</span>
+                        </label><br>
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="cantidad_estudiantes_actividades_centro_1" value="Algunas veces" class="text-[#483eff] border-gray-300">
+                            <span class="ml-2 text-sm font-medium text-[#233559]">Algunas veces</span>
+                        </label><br>
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="cantidad_estudiantes_actividades_centro_1" value="Muchas veces" class="text-[#483eff] border-gray-300">
+                            <span class="ml-2 text-sm font-medium text-[#233559]">Muchas veces</span>
+                        </label><br>
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="cantidad_estudiantes_actividades_centro_1" value="Siempre o Casi Siempre" class="text-[#483eff] border-gray-300">
+                            <span class="ml-2 text-sm font-medium text-[#233559]">Siempre o Casi Siempre</span>
+                        </label>
+                    </div>
+                        
+                </div>
+            </div>
+            
+            <!-- Pregunta 7 -->
+            <div class="w-full lg:w-6/12 pr-4">
+                <div class="relative w-full mb-3">
+                    <label class="block text-sm font-medium text-[#233559]" for="detalle-actividades-anual">
+                        Durante la realización de actividades especiales en inglés, describa la frecuencia en la que interactúan los actores mencionados a continuación, en el idioma inglés: director, administrativos, docentes de inglés, docentes de grado, docentes de asignaturas especiales, padres de familia, estudiantes
+                    </label>
+                    <div class="mt-2">
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="detalle_actividades_anual" value="Nunca o Casi Nunca" class="text-[#483eff] border-gray-300">
+                            <span class="ml-2 text-sm font-medium text-[#233559]">Nunca o Casi Nunca</span>
+                        </label><br>
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="detalle_actividades_anual" value="Algunas veces" class="text-[#483eff] border-gray-300">
+                            <span class="ml-2 text-sm font-medium text-[#233559]">Algunas veces</span>
+                        </label><br>
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="detalle_actividades_anual" value="Muchas veces" class="text-[#483eff] border-gray-300">
+                            <span class="ml-2 text-sm font-medium text-[#233559]">Muchas veces</span>
+                        </label><br>
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="detalle_actividades_anual" value="Siempre o Casi Siempre" class="text-[#483eff] border-gray-300">
+                            <span class="ml-2 text-sm font-medium text-[#233559]">Siempre o Casi Siempre</span>
+                        </label>
+                    </div>
+                    
+                </div>
+            </div>
+            
+
+        </div>
+
+        <div class="btns flex justify-between">
+            <div class="prev-stp visita mt-6 flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-[#483eff] hover:bg-[#665eff] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" type="button">Atrás</div>
+
+            <div class="next-stp visita mt-6 flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-[#483eff] hover:bg-[#665eff] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" type="button">Siguiente</div>
+        </div>
+    </div>
+
+    <!-- Formulario 5 end -->
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const selectFrecuencia5 = document.getElementById('actividades-propio-centro');
+            const selectsDependientes5 = document.querySelectorAll('#cantidad-estudiantes-actividades-externas-1, #actividades-meduca-centro, #cantidad-estudiantes-actividades-especiales-1, #actividades-externas-centro, #cantidad-estudiantes-actividades-centro-1, #detalle-actividades-anual');
+        
+            function toggleDisabled(value) {
+                const isDisabled = value === 'Nunca o Casi Nunca';
+                selectsDependientes5.forEach(select => {
+                    select.disabled = isDisabled;
+                    const label = document.querySelector(`label[for="${select.id}"]`);
+                    if (label) {
+                        if (isDisabled) {
+                            select.style.opacity = '0.3';
+                            label.style.opacity = '0.6';
+                            select.value = '';
+                        } else {
+                            select.style.opacity = '1';
+                            label.style.opacity = '1';
+                        }
+                    }
+                });
+            }
+        
+            if (selectFrecuencia5) {
+                selectFrecuencia5.addEventListener('change', function () {
+                    toggleDisabled(this.value);
+                });
+        
+                toggleDisabled(selectFrecuencia5.value);
+            }
+        });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const selectFrecuencia6 = document.getElementById('actividades-propio-centro');
+            const selectsDependientes6 = document.querySelectorAll('#cantidad-estudiantes-actividades-externas-2, #cantidad-estudiantes-actividades-externas-3, #cantidad-estudiantes-actividades-externas-4, #cantidad-estudiantes-actividades-especiales-1, #cantidad-estudiantes-actividades-especiales-2, #cantidad-estudiantes-actividades-especiales-3, #cantidad-estudiantes-actividades-especiales-4, #cantidad-estudiantes-actividades-centro-1, #cantidad-estudiantes-actividades-centro-2, #cantidad-estudiantes-actividades-centro-3, #cantidad-estudiantes-actividades-centro-4');
+        
+            function toggleDisabled(value) {
+                const isDisabled = value === 'Nunca o Casi Nunca';
+                selectsDependientes6.forEach(select => {
+                    select.disabled = isDisabled;
+                    const label = document.querySelector(`label[for="${select.id}"]`);
+                    if (label) {
+                        if (isDisabled) {
+                            select.style.opacity = '0.3';
+                            select.value = '';
+                        } else {
+                            select.style.opacity = '1';
+                        }
+                    }
+                });
+            }
+        
+            if (selectFrecuencia6) {
+                selectFrecuencia6.addEventListener('change', function () {
+                    toggleDisabled(this.value);
+                });
+        
+                toggleDisabled(selectFrecuencia6.value);
+            }
+        });
+    </script>
+
+    <!-- Formulario 6 start -->
+    <div class="stp step-6">
+        <h6 class="text-xl font-bold text-[#233559] mb-6">
+            Informacion del director 6
+        </h6>
+
+        <div class="flex flex-wrap">
+
+            <!-- Pregunta 1 -->
+            <div class="w-full lg:w-6/12 pr-4">
+                <div class="relative w-full mb-3">
+                    <label class="block text-sm font-medium text-[#233559]" for="after-school-existencia">
+                        En su centro educativo, se realizan cursos de inglés tipo "After School" para los estudiantes?
+                    </label>
+                    <div class="mt-2">
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="after_school_existencia" id="after_school_no" value="no" class="text-[#483eff] border-gray-300">
+                            <span class="ml-2 text-sm font-medium text-[#233559]">No</span>
+                        </label><br>
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="after_school_existencia" id="after_school_si" value="si" class="text-[#483eff] border-gray-300">
+                            <span class="ml-2 text-sm font-medium text-[#233559]">Sí</span>
+                        </label>
+                    </div>
+                    
+                </div>
+            </div>
+            
+            
+            <!-- Pregunta 2 -->
+            <div class="w-full lg:w-6/12 pl-4">
+                <div class="relative w-full mb-3">
+                    <label class="block text-sm font-medium text-[#233559]" for="after-school-descripcion">
+                        Mencione los cursos de inglés tipo "After School" para los estudiantes que se realizan en su Centro Educativo?
+                    </label>
+                    <div class="mt-2">
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="after_school_descripcion" id="after_school_descripcion_no" value="no" class="text-[#483eff] border-gray-300">
+                            <span class="ml-2 text-sm font-medium text-[#233559]">No</span>
+                        </label><br>
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="after_school_descripcion" id="after_school_descripcion_si" value="si" class="text-[#483eff] border-gray-300">
+                            <span class="ml-2 text-sm font-medium text-[#233559]">Sí</span>
+                        </label>
+                    </div>
+                    
+                </div>
+            </div>
+            
+            
+            <!-- Pregunta 3 -->
+            <div class="w-full lg:w-6/12 pr-4">
+                <div class="relative w-full mb-3">
+                    <label class="block text-sm font-medium text-[#233559]" for="after-school-participacion-1">
+                        ¿Cuántos estudiantes participan actualmente en estos cursos "After School" por grado?
+                    </label>
+                    <div class="mt-2">
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="after_school_participacion_1" id="after_school_participacion_1_ninguno" value="Nunca o Casi Nunca" class="text-[#483eff] border-gray-300">
+                            <span class="ml-2 text-sm font-medium text-[#233559]">Nunca o Casi Nunca</span>
+                        </label><br>
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="after_school_participacion_1" id="after_school_participacion_1_algunos" value="Algunas veces" class="text-[#483eff] border-gray-300">
+                            <span class="ml-2 text-sm font-medium text-[#233559]">Algunas veces</span>
+                        </label><br>
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="after_school_participacion_1" id="after_school_participacion_1_alrededor_mitad" value="Muchas veces" class="text-[#483eff] border-gray-300">
+                            <span class="ml-2 text-sm font-medium text-[#233559]">Muchas veces</span>
+                        </label><br>
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="after_school_participacion_1" id="after_school_participacion_1_mas_mitad" value="Siempre o Casi Siempre" class="text-[#483eff] border-gray-300">
+                            <span class="ml-2 text-sm font-medium text-[#233559]">Siempre o Casi Siempre</span>
+                        </label>
+                    </div>
+                        
+                </div>
+            </div>
+            
+        </div>
+        
+        <div class="btns flex justify-between">
+            <div class="prev-stp visita mt-6 flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-[#483eff] hover:bg-[#665eff] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" type="button">Atrás</div>
+
+            <button type="submit" class="visita mt-6 justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-[#483eff] hover:bg-[#665eff] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Enviar</button>
+        </div>
+    </div>
+    <!-- Formulario 6 end -->
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const selectFrecuencia7 = document.getElementById('after-school-existencia');
+            const selectsDependientes7 = document.querySelectorAll('#after-school-descripcion, #after-school-participacion-1');
+        
+            function toggleDisabled(value) {
+                const isDisabled = value === 'no';
+                selectsDependientes7.forEach(select => {
+                    select.disabled = isDisabled;
+                    const label = document.querySelector(`label[for="${select.id}"]`);
+                    if (label) {
+                        if (isDisabled) {
+                            select.style.opacity = '0.3';
+                            label.style.opacity = '0.6';
+                            select.value = '';
+                        } else {
+                            select.style.opacity = '1';
+                            label.style.opacity = '1';
+                        }
+                    }
+                });
+            }
+        
+            if (selectFrecuencia7) {
+                selectFrecuencia7.addEventListener('change', function () {
+                    toggleDisabled(this.value);
+                });
+        
+                toggleDisabled(selectFrecuencia7.value);
+            }
+        });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const selectFrecuencia8 = document.getElementById('after-school-existencia');
+            const selectsDependientes8 = document.querySelectorAll('#after-school-participacion-2, #after-school-participacion-3, #after-school-participacion-4');
+        
+            function toggleDisabled(value) {
+                const isDisabled = value === 'no';
+                selectsDependientes8.forEach(select => {
+                    select.disabled = isDisabled;
+                    const label = document.querySelector(`label[for="${select.id}"]`);
+                    if (label) {
+                        if (isDisabled) {
+                            select.style.opacity = '0.3';
+                            select.value = '';
+                        } else {
+                            select.style.opacity = '1';
+                        }
+                    }
+                });
+            }
+        
+            if (selectFrecuencia8) {
+                selectFrecuencia8.addEventListener('change', function () {
+                    toggleDisabled(this.value);
+                });
+        
+                toggleDisabled(selectFrecuencia8.value);
+            }
+        });
+    </script>
+
+</form>
+
+    <script>
+        function initMap() {
+            var latitudLongitud = "9.0873,-79.53303".split(",");
+            var myLatLng = { lat: parseFloat(latitudLongitud[0]), lng: parseFloat(latitudLongitud[1]) };
+    
+            var map = new google.maps.Map(document.getElementById('map'), {
+                center: myLatLng,
+                zoom: 15
+            });
+    
+            var marker = new google.maps.Marker({
+                position: myLatLng,
+                map: map,
+                title: 'Tu ubicación'
+            });
+        }
+    </script>   
+    
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBUgMUeO3O4-VNYpSllGniNfpU3nvc4tlI&callback=initMap" async defer></script>
+{% endblock %}
